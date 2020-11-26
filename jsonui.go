@@ -11,6 +11,7 @@ import (
 	"github.com/jroimartin/gocui"
 )
 
+//VERSION version
 const VERSION = "1.0.1"
 
 const (
@@ -117,16 +118,13 @@ func main() {
 	if err := g.SetKeybinding(treeView, gocui.KeyPgdn, gocui.ModNone, cursorMovement(15)); err != nil {
 		log.Panicln(err)
 	}
-	if err := g.SetKeybinding(treeView, 'e', gocui.ModNone, toggleExpand); err != nil {
+	if err := g.SetKeybinding(treeView, 'l', gocui.ModNone, toggleExpand); err != nil {
 		log.Panicln(err)
 	}
-	if err := g.SetKeybinding(treeView, 'E', gocui.ModNone, expandAll); err != nil {
+	if err := g.SetKeybinding(treeView, 'L', gocui.ModNone, expandAll); err != nil {
 		log.Panicln(err)
 	}
-	if err := g.SetKeybinding(treeView, 'C', gocui.ModNone, collapseAll); err != nil {
-		log.Panicln(err)
-	}
-	if err := g.SetKeybinding("", 'h', gocui.ModNone, toggleHelp); err != nil {
+	if err := g.SetKeybinding(treeView, 'H', gocui.ModNone, collapseAll); err != nil {
 		log.Panicln(err)
 	}
 	if err := g.SetKeybinding("", '?', gocui.ModNone, toggleHelp); err != nil {

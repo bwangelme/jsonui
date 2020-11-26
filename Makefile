@@ -1,15 +1,19 @@
+.PHONY: build, install, installdep, cover
+
 default: build
 
 installdep:
-	@go get github.com/golang/lint/golint
-	@go get
+	@go get -u golang.org/x/lint/golint
 
-build: installdep
+build:
 	@go fmt
 	@go vet
 	@golint
 	@go test ./...
 	@go build
+
+install: build
+	cp jsonui ~/bin/
 
 cover:
 	@go test ./... -coverprofile=coverage.out
